@@ -2,11 +2,12 @@ import re
 from flask import Flask, session, request, redirect, render_template, flash, url_for
 
 import db.data_layer as db
-'''
-USAGE:        db.<function_name>
-EXAMPLES:     db.search_by_user_or_email('Smith')
-              db.search_by_user_or_email('gmail.com')
-'''
+
+# '''
+# USAGE:        db.<function_name>
+# EXAMPLES:     db.search_by_user_or_email('Smith')
+#               db.search_by_user_or_email('gmail.com')
+# '''
 
 EMAIL_REGEX = re.compile(r'^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$')
 
