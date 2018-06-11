@@ -16,7 +16,7 @@ class Quote(Base):
    __tablename__ = 'quote'
 
    id = Column(Integer, primary_key=True)
-   quote = Column(String)
+   content = Column(String)
 
    user_id = Column(Integer, ForeignKey('user.id'))
    user = relationship(User, backref = inverse_relationship('quotes'))

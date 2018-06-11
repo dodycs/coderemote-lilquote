@@ -12,7 +12,7 @@ def get_all_quotes_for(user_id):
 
 def search_by_user_or_email(query):
     db = DbManager()
-    return db.open().query(User).filter(or_(User.username.like('%{}%'.format(query)), User.email.like('%{}%'.format(query)))).all()
+    return db.open().query(User).filter(or_(User.name.like('%{}%'.format(query)), User.email.like('%{}%'.format(query)))).all()
 
 def create_quote(user_id, content):
     db = DbManager()
@@ -32,18 +32,18 @@ def get_user_by_id(user_id):
     db = DbManager()
     return db.open().query(User).filer(User.id == user_id).one()
 
-def get_user_by_name(username):
+def get_user_by_name(name):
     db = DbManager()
-    return db.open().query(User).filer(User.name == username).one()
+    return db.open().query(User).filter(User.name == name).one()
 
 def get_user_by_email(user_email):
     db = DbManager()
-    return db.open().query(User).filer(User.email == user_email).one()
+    return db.open().query(User).filter(User.email == user_email).one()
 
-def create_user(email, username, password):
+def create_user(email, name, password):
     db = DbManager()
     user = User()
-    user.name = username
+    user.name = name
     user.email = email
     user.password = password
     return db.save(user)
